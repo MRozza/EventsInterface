@@ -1,0 +1,71 @@
+
+.pretty input {
+  left: auto;
+  right: 0;
+}
+
+
+.pretty .state label:before,
+.pretty .state label:after {
+  left: auto;
+  right: 0;
+}
+
+.pretty.p-icon .state .icon {
+  left: auto;
+  right: 0;
+}
+
+.pretty.p-svg .state .svg  {
+  left: auto;
+  right: 0;
+}
+
+.pretty.p-image .state img  {
+  left: auto;
+  right: 0;
+}
+.pretty.p-switch .state label:before,
+.pretty.p-switch .state label:after {
+  left: auto;
+  right: 0;
+}
+
+.pretty.p-switch input:checked ~ .state label:after {
+  left: auto;
+  right: 1em;
+}
+
+
+.pretty.p-switch.p-fill input:checked ~ .state label:after {
+  left: auto;
+  right: 1em;
+}
+
+.pretty input:checked ~ .state.p-success label:after,
+.pretty.p-toggle .state.p-success label:after {
+  background-color: $red-color !important;
+}
+
+.pretty input:checked ~ .state.p-success-o .icon,
+.pretty input:checked ~ .state.p-success-o .svg,
+.pretty input:checked ~ .state.p-success-o svg,
+.pretty.p-toggle .state.p-success-o .icon,
+.pretty.p-toggle .state.p-success-o .svg,
+.pretty.p-toggle .state.p-success-o svg {
+  color: $red-color;
+  stroke: $red-color;
+}
+
+.pretty.p-default:not(.p-fill) input:checked ~ .state.p-success-o label:after {
+  background-color: $red-color !important;
+}
+
+.pretty.p-switch input:checked ~ .state.p-success:before {
+  border-color: $red-color;
+}
+
+.pretty.p-switch.p-fill input:checked ~ .state.p-success:before {
+  background-color: $red-color !important;
+}
+

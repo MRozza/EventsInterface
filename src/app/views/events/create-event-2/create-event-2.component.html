@@ -1,0 +1,46 @@
+<div class="upcoming-container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="form-white">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <span class="page-number">{{'step2' | lang}}</span>
+            <h4>{{'designBranding' | lang}}</h4>
+          </div>
+        </div>
+        <div class="row margin-top-20">
+          <div class="col-md-7 col-sm-7 col-xs-7 form-group">
+            <input schemaPath=".CoverImage" type="image" [src]="eventTemplate?.CoverImage | safeHtml"
+                   class="img-thumbnail img-thumbnail-management" (click)="fileInput.click()" #img alt="Cover image">
+          </div>
+          <div class="col-md-5 col-sm-5 col-xs-5 form-group">
+            <h4>{{'opacity' | lang}}</h4>
+            <div class="slideContainer">
+              <input type="range" min="0" max="10" [value]="eventTemplate?.CoverImageOpacity" class="slider"
+                     id="myRange"
+                     (change)="rangeChange($event)">
+            </div>
+            <span class="btn btn-default btn-file btn-block">
+    <input type="file" accept="image/*" #fileInput (change)="fileChangeEvent($event,false)">{{'uploadCover' | lang}}
+    </span>
+          </div>
+        </div>
+        <div class="row margin-top-20">
+          <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+            <span schemaPath=".Logo" class="btn btn-default btn-file btn-block">
+    <input type="file" accept="image/*"  (change)="fileChangeEvent($event, true)">{{'uploadLogo' | lang}}
+    </span>
+          </div>
+        </div>
+
+        <div class="row margin-top-10">
+          <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+            <button type="submit" class="btn btn-default pull-right" (click)="submit()">{{'submit' | lang}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

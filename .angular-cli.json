@@ -1,0 +1,94 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "events-interface"
+  },
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "../node_modules/bootstrap/dist/css/bootstrap.css",
+        "../node_modules/bootstrap-rtl/dist/css/bootstrap-rtl.css",
+        "../node_modules/bootstrap-rtl/dist/css/bootstrap-flipped.css",
+        "../node_modules/icheck/skins/flat/green.css",
+        "../node_modules/select2/dist/css/select2.css",
+        "../node_modules/toastr/toastr.less",
+        "../node_modules/select2-bootstrap-theme/dist/select2-bootstrap.css",
+        "../node_modules/animate.css/animate.css",
+        "../node_modules/spinkit/scss/spinkit.scss",
+        "../node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.css",
+        "../node_modules/quill/dist/quill.snow.css",
+        "../node_modules/quill/dist/quill.bubble.css",
+        "../node_modules/pretty-checkbox/dist/pretty-checkbox.css",
+        "../node_modules/toastr/build/toastr.css",
+        "assets/vendors/fontawesome-free-5.0.8/web-fonts-with-css/scss/fontawesome.scss",
+        "assets/vendors/fontawesome-free-5.0.8/web-fonts-with-css/scss/fa-solid.scss",
+        "assets/fonts/Cairo-Bold/styles.css",
+        "assets/fonts/Cairo-Regular/styles.css",
+        "assets/scss/imports.scss"
+      ],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.js",
+        "../node_modules/select2/dist/js/select2.full.min.js",
+        "../node_modules/sweetalert/dist/sweetalert.min.js",
+        "../node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.js",
+        "../node_modules/moment/min/moment.min.js",
+        "../node_modules/quill/dist/quill.js",
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.js",
+        "../node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.ar.min.js",
+        "../node_modules/froala-editor/js/froala_editor.pkgd.min.js",
+        "../node_modules/moment/locale/ar.js",
+        "assets/js/jquery.blockUI.js",
+        "../node_modules/toastr/build/toastr.min.js",
+        "../node_modules/chart.js/src/chart.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "project": "src/tsconfig.app.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "src/tsconfig.spec.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json",
+      "exclude": "**/node_modules/**"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "css",
+    "component": {}
+  }
+}

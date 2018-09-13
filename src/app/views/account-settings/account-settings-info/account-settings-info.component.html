@@ -1,0 +1,78 @@
+<div class="row">
+  <div class="col-md-2 col-sm-2 col-xs-2 no-padding ">
+  </div>
+  <div class="col-md-10 col-sm-10 col-xs-10 no-padding">
+    <h2 class="setting-tabs-title">{{'AccountSettings' | lang}}</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2 col-sm-2 col-xs-2 no-padding ">
+  </div>
+  <div class="col-md-10 col-sm-10 col-xs-10 no-padding">
+    <app-account-settings-top-tab [activeTab]="1"></app-account-settings-top-tab>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2 col-sm-2 col-xs-2 no-padding">
+    <app-vertical-tab-settings [activeTab]="4"></app-vertical-tab-settings>
+  </div>
+  <div class="col-md-10 col-sm-10 col-xs-10 no-padding">
+    <div class="tabcontent">
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-6">
+          <label>{{'firstName' | lang}}</label>
+          <input schemaPath=".FirstName" type="text" class="form-control"
+                 [(ngModel)]="User.FirstName"/>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6">
+          <label>{{'lastName' | lang}}</label>
+          <input schemaPath=".LastName" type="text" class="form-control"
+                 [(ngModel)]="User.LastName"/>
+        </div>
+      </div>
+
+      <div class="row top-margin">
+        <div class="col-md-6 col-sm-6 col-xs-6">
+          <label>{{'email' | lang}}</label>
+          <input type="text" class="form-control" schemaPath=".Email" [(ngModel)]="User.Email">
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6">
+          <label>{{'mobile' | lang}}</label>
+          <input type="text" class="form-control" schemaPath=".Mobile"
+                 [(ngModel)]="User.Mobile"/>
+        </div>
+      </div>
+      <div class="row top-margin">
+        <div class="col-md-6 col-sm-6 col-xs-6">
+          <label>{{'birthDate' | lang}}</label>
+          <app-pick-date schemaPath=".Contact.BirthDate" [(ngModel)]="User.Contact.BirthDate"
+                         [options]="dateOption"></app-pick-date>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6">
+          <label>{{'gender' | lang}}</label>
+          <select class="form-control" [(ngModel)]="User.Contact.Gender">
+            <option value="0">{{'male'| lang}}</option>
+            <option value="1">{{'female'| lang}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row top-margin">
+        <div class="col-md-1 col-sm-1 col-xs-1">
+          <input type="image" [src]="User.Contact.ProfilePicture||'../../../../assets/images/logo-image.png' | safeHtml"
+                 class="user-image-input" (click)="fileInput.click()">
+          <input type="file" accept="image/*" #fileInput style="display: none" (change)="fileChangeEvent($event)">
+        </div>
+        <div class="col-md-11 col-sm-11 col-xs-11">
+          <label>{{'bio' | lang}}</label>
+          <textarea class="form-control" [(ngModel)]="User.Contact.Bio"></textarea>
+        </div>
+      </div>
+      <div class="row top-margin">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <button type="submit" class="btn btn-default btn-block" (click)="onSubmit()">{{'submit' | lang}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

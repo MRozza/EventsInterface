@@ -1,0 +1,17 @@
+.agm-map {
+  position: relative;
+  height: 400px;
+  top: 30px;
+}
+#pac-input {
+  /*position: relative;*/
+  /*z-index: 2;*/
+  /*top: 20px;*/
+  /*background-color: #fff;*/
+  /*font-family: Roboto;*/
+  /*font-size: inherit;*/
+  /*font-weight: inherit;*/
+  /*margin-right: 5%;*/
+  /*text-overflow: ellipsis;*/
+  /*width: 90%;*/
+}

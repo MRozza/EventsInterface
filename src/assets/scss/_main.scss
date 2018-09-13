@@ -1,0 +1,312 @@
+
+html {
+  font-family: $font-regular;
+}
+
+th {
+  font-family: $font-regular;
+}
+
+h2, h1, h3, h4 {
+  font-family: $font-regular-bold;
+}
+
+td {
+  font-family: $font-regular;
+}
+
+input::-moz-placeholder {
+  font-family: $font-regular;
+}
+
+input, select, a {
+  font-family: $font-regular;
+}
+
+div, button {
+  font-family: $font-regular;
+}
+
+.nav li a {
+  font-family: $font-regular-bold;
+}
+
+.errors-list {
+  margin: 2px 0 3px;
+  padding: 0;
+  list-style-type: none;
+  font-size: 0.9em;
+  color: #B94A48;
+  line-height: 0.9em;
+  opacity: 1;
+  text-align: right;
+  font-weight: bold;
+  transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  -webkit-transition: all .3s ease-in;
+}
+
+.btn-default {
+  margin-top: 20px;
+  background-color: $red-color;
+  color: #ffffff;
+  font-family: $font-regular-bold;
+}
+
+.form-control {
+  border-color: $input-boarder;
+}
+
+.main-container {
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+.header-underline {
+  margin-top: 15px;
+  background: $red-color;
+  height: 6px;
+  width: 100px;
+  text-align: center;
+  border-radius: 25px;
+}
+
+.ticket-container {
+  background-color: #ffffff;
+  border-radius: 25px;
+  padding: 20px;
+}
+
+.gray-background {
+  background-color: $gray-background;
+}
+
+.setting-tabs-title {
+  //padding-right: 200px;
+  padding-bottom: 20px;
+}
+
+.form-control:focus {
+  border-color: $red-color;
+  box-shadow: 0 1px 1px $red-color inset, 0 0 8px $red-color;
+  outline: 0 none;
+}
+
+.top-margin {
+  margin-top: 50px;
+}
+
+.bold-font {
+  font-family: $font-regular-bold;
+}
+
+.header-label {
+  font-size: 1.5em;
+  margin-left: 40px;
+}
+
+.vertical-center {
+  vertical-align: center;
+}
+
+.margin-top-10 {
+  margin-top: 10px
+}
+
+.padding-top-5 {
+  padding-top: 5px;
+}
+
+.padding-top-10 {
+  padding-top: 10px;
+}
+
+.margin-top-30 {
+  margin-top: 30px
+}
+
+.margin-top-20 {
+  margin-top: 20px
+}
+
+.margin-top-50 {
+  margin-top: 50px
+}
+
+.margin-top-80 {
+  margin-top: 80px
+}
+
+.margin-bottom-10 {
+  margin-bottom: 10px
+}
+
+.curve-button {
+  margin-top: 5px;
+  background-color: $red-color;
+  border-radius: 40px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+textarea {
+  resize: none;
+}
+
+.design-image {
+  max-height: 300px;
+  max-width: 300px;
+}
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
+
+.modal-header-get-ticket {
+  height: 150px !important;
+  background-color: $custom-black;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: #ffffff;
+
+}
+
+.title-ticket-large {
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.title-ticket-small {
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.red-button {
+  background-color: $red-color;
+  color: #ffffff;
+}
+
+.white-color {
+  color: #ffffff !important;
+}
+
+.navbar {
+  min-height: auto !important;
+  height: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+
+
+.user-image-input {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-top: 25px;
+}
+
+.dropdown-toggle-profile {
+  height: 60px;
+  cursor: pointer;
+}
+
+.footer-update {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  //color: white;
+  text-align: center;
+}
+
+.ql-editor {
+  background-color: #fff;
+
+}
+
+//.rich-editor-container-flex-500 {
+//  height: 100%;
+//  max-height: 100%;
+//  display: flex;
+//  flex-direction: column;
+//}
+
+.ql-editor {
+  direction: rtl;
+  text-align: right;
+}
+
+.btn-toolbar .input-group {
+  float: right;
+}
+
+.small-gray {
+  font-size: .9em;
+  color: gray;
+}
+
+.title-3 {
+  font-size: 1.5em;
+  font-family: $font-regular-bold;
+}
+
+.title-2 {
+  font-size: 1em;
+  font-family: $font-regular-bold;
+}
+
+.top-offset-50 {
+  margin-top: 50px;
+}
+
+.top-offset-10 {
+  margin-top: 10px;
+}
+
+.title-4 {
+  padding-top: 20px;
+  font-size: 1.1em;
+  color: $gray-color;
+  font-family: $font-regular-bold;
+}
+
+.title-5 {
+  font-size: .9em;
+  padding-top: 20px;
+  font-family: $font-regular-bold;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.text-link, .text-link:hover, .text-link:focus{
+  color: #fff;
+  text-decoration: none;
+}
+
+.img-circle-logo {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}

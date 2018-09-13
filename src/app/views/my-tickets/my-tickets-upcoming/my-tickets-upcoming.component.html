@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-md-2 col-sm-2 col-xs-2 no-padding ">
+  </div>
+  <div class="col-md-10 col-sm-10 col-xs-10 no-padding">
+    <h2 class="setting-tabs-title">{{'MyTickets' | lang}}</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2 col-sm-2 col-xs-2 no-padding ">
+  </div>
+  <div class="col-md-10 col-sm-10 col-xs-10 no-padding">
+    <app-tickets-top-tab [activeTab]="1"></app-tickets-top-tab>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2 col-sm-2 col-xs-2 no-padding">
+    <app-vertical-tab-settings [activeTab]="1"></app-vertical-tab-settings>
+  </div>
+  <div class="col-md-10 col-sm-10 col-xs-10 no-padding">
+    <div class="tabcontent">
+      <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12 text-center no-data" *ngIf="data && data.length==0" >{{'noData' | lang}}</div>
+
+        <div class="col-md-6 col-sm-6 col-xs-6" *ngFor="let item of data;">
+          <div class="ticket-container">
+            <h4>{{item.title}}</h4>
+            <p>{{item.date + ' | ' +item.cityName}}</p>
+            <p>{{item.price}}</p>
+            <div class="row">
+              <div class="col-md-8 col-sm-8 col-xs-8">
+                {{item.address}}
+                  <a [href]="'https://maps.google.com/maps?q='+item.latitude+','+item.longitude+'&hl=es;z=14&amp;output=embed'"target="_blank">{{'viewOnMap' | lang}}</a>
+              </div>
+              <div class="col-md-4 col-sm-4 col-xs-4">
+                <button class="btn btn-default">{{'viewTicket' | lang}}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

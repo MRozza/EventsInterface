@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+        <label>{{'email' | lang}}</label>
+        <input schemaPath=".Email" type="text" class="form-control"
+               [(ngModel)]="ticketAttendeeInfo.Email"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+        <label>{{'mobile' | lang}}</label>
+        <input schemaPath=".Mobile" type="text" class="form-control"
+               [(ngModel)]="ticketAttendeeInfo.Mobile"/>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+    <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+      <h4>Order Summery</h4>
+    </div>
+  </div>
+  <div class="row" *ngFor="let ticket of ticketPurchaseData">
+    <div class="col-md-12 col-sm-12 col-xs-12 form-group" *ngIf="ticket.Quantity>0">
+      <label><span>{{ticket.TicketTitle}}</span><span> {{ticket.Quantity}}</span></label><label>{{ticket.Price}}</label>
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <label>{{'subTotal'|lang}} {{subTotal}}</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <label>{{'VAT(5%)'|lang}} {{VAT}}</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <label>{{'Total'|lang}} {{VAT + subTotal}}</label>
+      </div>
+    </div>
+  </div>
+</div>

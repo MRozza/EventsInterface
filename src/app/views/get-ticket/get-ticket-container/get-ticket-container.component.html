@@ -1,0 +1,29 @@
+<div class="modal fade" id="bt" tabindex="-1" data-backdrop="static" aria-hidden="true" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header modal-header-get-ticket">
+        <div class="modal-title pull-left ">
+          <p class="title-ticket-large">{{ticketPurchase?.EventTitle}}</p>
+          <p class="title-ticket-small">{{ticketPurchase?.EventDate}}</p>
+        </div>
+        <div class="modal-title pull-right">
+          <p class="title-ticket-small"><i class="fas fa-map-marker"></i>  {{ticketPurchase?.EventLocation}}</p>
+          <a class="text-link" [href]="'https://maps.google.com/maps?q='+ticketPurchase?.Latitude+','+ticketPurchase?.Longitude+'&hl=es;z=14&amp;output=embed'" target="_blank">
+            {{'ViewOnMap' | lang}}
+          </a>
+        </div>
+
+      </div>
+      <div class="modal-body">
+        <app-select-tickets *ngIf="currentStep===1" [tickets]="ticketPurchase?.TicketPurchaseData"></app-select-tickets>
+        <app-person-info *ngIf="currentStep===2" [ticketInfo]="currentTicketInfo"></app-person-info>
+        <app-ticket-info *ngIf="currentStep===3" [ticketAttendeeInfo]="ticketAttendeeInfo" [ticketPurchaseData]="ticketPurchase?.TicketPurchaseData"></app-ticket-info>
+        <app-payment-info *ngIf="currentStep===4"></app-payment-info>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="nextTicket()">{{buttonsName[currentStep] | lang}}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

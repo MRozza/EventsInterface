@@ -1,0 +1,11 @@
+<div class="management-dialog event-tickets">
+  <div class="management-dialog-title">{{'Tickets' | lang}}
+    <span (click)="hide()" class="management-dialog-title-arrow"><i class="fas fa-arrow-right"></i></span>
+  </div>
+  <div class="management-form" *ngIf="showAllTickets; else showTicket">
+    <app-step-3-all [tickets]="tickets" (showAllTickets)="changeView($event)" [pushToArray]="pushToArray"></app-step-3-all>
+    <button type="submit" class="btn btn-default pull-right btn-block" (click)="addNewTicket()">{{'addNewTicket' | lang}}</button>
+  </div>
+  <ng-template  #showTicket ><app-step-3  [ticketCreation]="ticketCreation" [tickets]="tickets" [pushToArray]="pushToArray" [showAllTickets]="showAllTickets"></app-step-3></ng-template>
+
+</div>

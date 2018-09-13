@@ -1,0 +1,102 @@
+<div class="row margin-top-20">
+  <div class="col-md-6 col-sm-6 col-xs-6">
+    <div class="pretty p-icon p-smooth">
+      <input type="radio" name="radioGroup" [checked]="eventSettings.IsPrivate" id="private">
+      <div class="state p-success">
+        <i class="icon glyphicon glyphicon-ok"></i>
+        <label for="private">{{'private' | lang}}</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 col-sm-6 col-xs-6">
+    <div class="pretty p-icon p-smooth">
+      <input type="radio" name="radioGroup" [checked]="!eventSettings.IsPrivate" id="public">
+      <div class="state p-success">
+        <i class="icon glyphicon glyphicon-ok"></i>
+        <label for="public">{{'public' | lang}}</label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row margin-top-20">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <label>{{'eventCapacity' | lang}}</label>
+    <input schemaPath=".EventCapacity" type="number" class="form-control"
+           [(ngModel)]="eventSettings.EventCapacity" [disabled]="unlimited"/>
+  </div>
+</div>
+
+<div class="row margin-top-20">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="pretty p-icon p-smooth">
+      <input type="checkbox" [(checked)]="unlimited" id="unlimited" (change)="unlimited = !unlimited">
+      <div class="state p-success">
+        <i class="icon glyphicon glyphicon-ok"></i>
+        <label for="unlimited">{{'unlimited' | lang}}</label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row margin-top-20">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <label>{{'organizerTitle' | lang}}</label>
+    <input schemaPath=".OrganizerTitle" type="text" class="form-control"
+           [(ngModel)]="eventSettings.OrganizerTitle"/>
+  </div>
+</div>
+
+<div class="row margin-top-20">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <label>{{'organizerDescription' | lang}}</label>
+    <!-- <textarea class="form-control" [ngModel]="model.Description" ></textarea> -->
+    <quill-editor schemaPath=".OrganizerDescription"  [modules]="defaultModal"
+                    [(ngModel)]="eventSettings.OrganizerDescription"></quill-editor>
+
+    <!--<app-ngx-editor [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="eventSettings.OrganizerDescription"-->
+                    <!--schemaPath=".OrganizerDescription"></app-ngx-editor>-->
+  </div>
+</div>
+
+<div class="row margin-top-20">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <label>{{'twitter' | lang}}</label>
+    <input type="text" class="form-control"
+           [(ngModel)]="eventSettings.OrganizerTwitter" placeholder="{{'twitterText' | lang}}"/>
+  </div>
+</div>
+
+<div class="row margin-top-20">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <label>{{'instagram' | lang}}</label>
+    <input type="text" class="form-control"
+           [(ngModel)]="eventSettings.OrganizerInstagram" placeholder="{{'instagramText' | lang}}"/>
+  </div>
+</div>
+
+<div class="row margin-top-20">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <label>{{'email' | lang}}</label>
+    <input type="text" class="form-control" schemaPath=".OrganizerEmail"
+           [(ngModel)]="eventSettings.OrganizerEmail" placeholder="{{'organizerEmailText' | lang}}"/>
+  </div>
+</div>
+
+<div class="row margin-top-20">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <label>{{'terms' | lang}}</label>
+    <!-- <textarea class="form-control" [ngModel]="model.Description" ></textarea> -->
+    <quill-editor schemaPath=".Terms"  [modules]="defaultModal"
+                    [(ngModel)]="eventSettings.Terms"></quill-editor>
+
+    <!--<app-ngx-editor [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="eventSettings.Terms" schemaPath=".Terms"></app-ngx-editor>-->
+  </div>
+</div>
+
+<div class="row margin-top-20">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <button type="submit" class="btn btn-default pull-right btn-block" (click)="submit()">{{'submit' | lang}}</button>
+  </div>
+</div>

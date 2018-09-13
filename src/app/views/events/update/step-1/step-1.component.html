@@ -1,0 +1,66 @@
+<div class="row margin-top-20">
+  <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+    <label>{{'EventTitle' | lang}}</label>
+    <input type="text" class="form-control" schemaPath=".EventTitle"  [(ngModel)]="model.EventTitle">
+  </div>
+</div>
+
+<div class="row margin-top-20">
+  <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+    <label>{{'EventCategory' | lang}}</label>
+    <select [compareWith]="compareCategoryFn" class="form-control"  [(ngModel)]="model.Category">
+      <option *ngFor="let cat of CategoryList"  [ngValue]="cat" >{{cat.Name | lang}}</option>
+    </select>
+  </div>
+</div>
+
+<div class="row margin-top-20">
+  <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+    <label>{{'EventType' | lang}}</label>
+    <select [compareWith]="compareCategoryFn" class="form-control"  [(ngModel)]="model.EventType">
+      <option *ngFor="let ev of EventTypeList"  [ngValue]="ev" >{{ev.Name | lang}}</option>
+    </select>
+  </div>
+</div>
+
+<div class="row margin-top-20">
+  <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+    <label>{{'StartDate' | lang}}</label>
+    <app-pick-date  [(ngModel)]="model.StartDate" [options]="dateOption"></app-pick-date>
+  </div>
+</div>
+
+<div class="row margin-top-20">
+  <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+    <label>{{'StartTime' | lang}}</label>
+    <input type="time" class="form-control" [(ngModel)]="model.StartTime">
+  </div>
+</div>
+
+<div class="row margin-top-20">
+  <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+    <label>{{'EndDate' | lang}}</label>
+    <app-pick-date  [(ngModel)]="model.EndDate" [options]="dateOption"></app-pick-date>
+  </div>
+</div>
+
+<div class="row margin-top-20">
+  <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+    <label>{{'EndTime' | lang}}</label>
+    <input type="time" class="form-control" [(ngModel)]="model.EndTime">
+  </div>
+</div>
+
+<div class="row margin-top-20">
+  <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+    <label>{{'EventDescription' | lang}}</label>
+    <quill-editor [modules]="quillModel"  [(ngModel)]="model.Description"></quill-editor>
+  </div>
+</div>
+
+
+<div class="row margin-top-20">
+  <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+    <button type="submit" class="btn btn-default pull-right btn-block" (click)="SaveEventStep1()">{{'submit' | lang}}</button>
+  </div>
+</div>

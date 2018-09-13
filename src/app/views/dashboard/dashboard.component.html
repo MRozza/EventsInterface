@@ -1,0 +1,123 @@
+<div class="dashboard-banner">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <h1 class="dashboard-banner-header">{{'WeHelpMake' | lang}}</h1>
+        </div>
+      </div>
+      <div class="row top-margin">
+        <div class="col-md-10 col-sm-10 col-xs-10">
+          <label></label>
+          <input type="text" class="form-control" [(ngModel)]="queryStringParam" placeholder="{{'SearchEventsCategories' | lang}}"/>
+        </div>
+        <div class="col-md-2 col-sm-2 col-xs-2">
+          <a [routerLink]="'/events/upcoming'"  [queryParams]="{q:queryStringParam}" class="btn btn-default btn-block">{{'Search' | lang}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="dashboard-content">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="row">
+
+        <div class="col-md-3 col-sm-12 col-xs-12" *ngFor="let event of paginationData">
+          <div class="dashboard-event">
+            <span class="dashboard-event-group">{{event.CategoryName}}</span>
+            <a href="event/view/{{event.Id}}"><h4>{{event.Title}}</h4></a>
+            <p>{{event.TypeName | lang}}</p>
+            <p>{{event.DateText}}</p>
+            <p>{{event.CityName}}</p>
+
+            <div class="pull-left">
+              <p>{{'ticketPrice' | lang}} {{event.LowestPrice}}</p>
+            </div>
+            <div class="pull-right margin-top-30">
+              <a class="dashboard-event-icon"><i class="fas fa-share-alt"></i></a>
+              <a class="dashboard-event-icon"><i class="fas fa-bookmark"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div *ngIf="paginationData.length<eventsList.length" class="row margin-top-80">
+        <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+          <button class=" btn" (click)='LogEventList()'>{{'SeeMore' | lang}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-banner2">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <h1 class="dashboard-banner-header2">{{'GetMoreWith' | lang}}</h1>
+          <p class="dashboard-banner-header-desc">{{'EasyToUse' | lang}}</p>
+          <div class="text-center">
+            <a class="btn btn-default" [routerLink]="'/events/create-1'">{{'CreateEvent' | lang}}</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-contact">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="row margin-top-10">
+        <div class="col-md-12 col-sm-12 col-xs-12 form-group text-center">
+          <h2 style="padding-left: 60px">{{'WeReadyForYourQuestions' | lang}}</h2>
+          <div class="row">
+            <div class="col-md-2 col-md-offset-5">
+              <div class="header-underline"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row margin-top-10">
+        <div class="col-md-6 col-sm-12 col-xs-12">
+          <label>{{'firstName' | lang}}</label>
+          <input schemaPath=".FirstName" type="text" class="form-control"
+                 [(ngModel)]="contactUs.FirstName"/>
+        </div>
+        <div class="col-md-6 col-sm-12 col-xs-12">
+          <label>{{'lastName' | lang}}</label>
+          <input schemaPath=".LastName" type="text" class="form-control"
+                 [(ngModel)]="contactUs.LastName"/>
+        </div>
+      </div>
+      <div class="row margin-top-10">
+        <div class="col-md-6 col-sm-12 col-xs-12">
+          <label>{{'email' | lang}}</label>
+          <input type="email" schemaPath=".Email" class="form-control"
+                 [(ngModel)]="contactUs.Email"/>
+        </div>
+        <div class="col-md-6 col-sm-12 col-xs-12">
+          <label>{{'mobile' | lang}}</label>
+          <input schemaPath=".Mobile" type="text" class="form-control"
+                 [(ngModel)]="contactUs.Mobile"/>
+        </div>
+      </div>
+      <div class="row margin-top-10">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <label>{{'message' | lang}}</label>
+          <textarea class="form-control" schemaPath=".Message"
+                        [(ngModel)]="contactUs.Message"></textarea>
+        </div>
+      </div>
+      <div class="row margin-top-10" style="padding-top: 50px">
+        <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+          <button type="submit" class="btn btn-default pull-right" (click)="sendMsg()">{{'submit' | lang}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

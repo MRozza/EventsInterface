@@ -1,0 +1,24 @@
+<h4>{{'Ticket' + ticketInfo.Number}}</h4>
+<h4>{{ticketInfo.TicketTitle}}</h4>
+<div class="row">
+  <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+    <label>{{'firstName' | lang}}</label>
+    <input schemaPath=".FirstName" type="text" class="form-control"
+           [(ngModel)]="ticketInfo.TicketsInfoName.FirstName"/>
+  </div>
+  <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+    <label>{{'lastName' | lang}}</label>
+    <input schemaPath=".LastName" type="text" class="form-control"
+           [(ngModel)]="ticketInfo.TicketsInfoName.LastName"/>
+  </div>
+</div>
+<div class="row" *ngFor="let question of ticketInfo.TicketsInfoName.Questions; let i = index"
+     [attr.data-index]="i">
+  <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+    <p>{{question.QuestionText}}</p>
+  </div>
+  <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+    <textarea maxlength="2000" type="text" class="form-control" required
+           [(ngModel)]="ticketInfo.TicketsInfoName.Answers[i].AnswerText"></textarea>
+  </div>
+</div>

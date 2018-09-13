@@ -1,0 +1,41 @@
+<div class="upcoming-container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="row">
+
+        <div class="col-md-3 col-sm-3 col-xs-3">
+          <app-search-name [(data)]="searchModel" (dataChanged)="ApplySearchModel()"></app-search-name>
+          <app-location [(data)]="locationsSelection" (selectOptionsChange)="LocationsChanged($event)" ></app-location>
+          <app-dates [(datesList)]="DatesList" (dateOptionChanged)="dateOptionChanged($event)"></app-dates>
+          <app-event-types (selectedTypeChanged)="selectedTypeChanged($event)" [data]="eventType"></app-event-types>
+          <app-event-types (selectedTypeChanged)="selectedCategoryChanged($event)" [data]="eventCats"></app-event-types>
+        </div>
+        <div class="col-md-9 col-sm-9 col-xs-9">
+          <div class="row">
+            <div class="col-md-3 col-sm-12 col-xs-12" *ngFor="let event of paginationData">
+              <div class="dashboard-event">
+                <span class="dashboard-event-group">{{event.CategoryName}}</span>
+                <a href="/manage/event/{{event.Id}}"><h4>{{event.Title}}</h4></a>
+                <p>{{event.TypeName | lang}}</p>
+                <p>{{event.DateText}}</p>
+
+                <div class="pull-left">
+                  <p>{{'ticketPrice' | lang}} {{event.LowestPrice +' - '+ event.HighestPrice}}</p>
+                </div>
+                <div class="pull-right margin-top-30">
+                  <a class="dashboard-event-icon"><i class="fas fa-share-alt"></i></a>
+                  <a class="dashboard-event-icon"><i class="fas fa-bookmark"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="paginationData.length<eventsList.length" class="row margin-top-80">
+            <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+              <button class="btn btn-block" (click)="nextPage()">{{'SeeMore' | lang}}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

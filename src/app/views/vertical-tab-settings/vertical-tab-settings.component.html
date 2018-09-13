@@ -1,0 +1,24 @@
+<div class="row v-row" [class.tablinks-active]="activeTab===1">
+  <div class="col-md-12 col-sm-12 col-xs-12 no-padding">
+    <a [routerLink]="'/my-tickets/upcoming'"  >{{'MyTickets' | lang}}</a>
+  </div>
+</div>
+
+<div class="row v-row" [class.tablinks-active]="activeTab===2">
+  <div class="col-md-12 col-sm-12 col-xs-12 no-padding">
+    <a [routerLink]="'/my-events/draft'" >{{'MyEvents' | lang}}</a>
+  </div>
+</div>
+
+<div class="row v-row" [class.tablinks-active]="activeTab===3">
+  <div class="col-md-12 col-sm-12 col-xs-12 no-padding">
+    <a class="last-button"  href="/events/create-1" >{{'CreateEvents' | lang}}</a>
+  </div>
+</div>
+
+<div class="row v-row" [class.tablinks-active]="activeTab===4">
+  <div class="col-md-12 col-sm-12 col-xs-12 no-padding">
+    <a [routerLink]="'/account-settings/profile-info'"  >{{'Settings' | lang}}</a>
+
+  </div>
+</div>

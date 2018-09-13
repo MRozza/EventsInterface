@@ -1,0 +1,54 @@
+<div style="margin: auto; max-width: 1000px; margin-bottom: 50px;">
+  <data-table id="orders-grid"
+              headerTitle="تقارير البيع"
+              [items]="items"
+              [itemCount]="itemCount"
+              (reload)="reloadItems($event)"
+
+              (rowClick)="rowClick($event)"
+              (rowDoubleClick)="rowDoubleClick($event)"
+              [rowTooltip]="rowTooltip"
+  >
+    <data-table-column
+      [property]="'TicketNumber'"
+      [header]="'TicketNumber' | lang"
+      [sortable]="true"
+      [resizable]="true">
+      <ng-template #dataTableCell let-item="item">
+        <span>{{item.TicketNumber}}</span>
+      </ng-template>
+    </data-table-column>
+    <data-table-column
+      [property]="'firstName'"
+      [header]="'firstName'| lang"
+      [sortable]="true">
+      <ng-template #dataTableCell let-item="item">
+        <span>{{item.firstName}}</span>
+      </ng-template>
+    </data-table-column>
+    <data-table-column
+      [property]="'lastName'"
+      [header]="'lastName'| lang"
+      [sortable]="true">
+      <ng-template #dataTableCell let-item="item">
+        <span>{{item.lastName}}</span>
+      </ng-template>
+    </data-table-column>
+    <data-table-column
+      [property]="'email'"
+      [header]="'email'| lang"
+      [sortable]="true">
+      <ng-template #dataTableCell let-item="item">
+        <span>{{item.email}}</span>
+      </ng-template>
+    </data-table-column>
+    <data-table-column
+      [property]="'price'"
+      [header]="'price'| lang"
+      [sortable]="true">
+      <ng-template #dataTableCell let-item="item">
+        <span>{{item.price}}</span>
+      </ng-template>
+    </data-table-column>
+  </data-table>
+</div>

@@ -1,0 +1,18 @@
+<div class="filter-box">
+  <div class="row padding-top-10">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <span class="pull-left bold-font">{{'SearchForEvent' | lang}}</span>
+      <span class="pull-right"><i class="fas fa-search"></i></span>
+    </div>
+  </div>
+  <div class="row padding-top-10">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <input type='text' class="form-control" [(ngModel)]="data.EventTitle"/>
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <button class="btn btn-default btn-block" (click)="search()">{{'Search' | lang}}</button>
+    </div>
+  </div>
+</div>
+
+

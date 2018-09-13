@@ -1,0 +1,56 @@
+<nav class="navbar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a [routerLink]="'/'"><img src="../../../../assets/images/events-logo-40.png"></a>
+      <span class="bold-font header-label margin-top-10" >{{'eventribe' | lang}}</span>
+    </div>
+    <ul class="nav  navbar-nav navbar-right">
+      <li><a class="curve-button" [routerLink]="'/events/upcoming'">{{'allEvents' | lang}}</a></li>
+      <li><a class="curve-button" href="/events/create-1">{{'CreateEvent' | lang}}</a></li>
+      <li class="vertical-center user user-menu" >
+        <a class="no-hover dropdown-toggle dropdown-toggle-profile no-hover" data-toggle="dropdown">
+          <img [src]="currentUser?.Contact?.ProfilePicture||'https://www.freeiconspng.com/uploads/am-a-19-year-old-multimedia-artist-student-from-manila--21.png' | safeHtml" class="user-image">
+        </a>
+
+        <ul *ngIf="currentUser;else noUser" class="dropdown-menu ">
+          <li class="user-header">
+            <img [src]="currentUser?.Contact?.ProfilePicture||'https://www.freeiconspng.com/uploads/am-a-19-year-old-multimedia-artist-student-from-manila--21.png' | safeHtml" class="img-circle" alt="User Image">
+
+            <p>
+              {{currentUser?.FirstName + ' ' + currentUser?.LastName}}
+            </p>
+          </li>
+          <li class="user-body">
+            <div class="row">
+              <div class="col-xs-3 text-center">
+              </div>
+              <div class="col-xs-6 text-center">
+                <a href="/account-settings/profile-info/">{{'accountSettings'|lang}}</a>
+              </div>
+              <div class="col-xs-3 text-center">
+              </div>
+            </div>
+          </li>
+          <li class="user-footer">
+            <div >
+              <a  href="#" [routerLink]="'/dashboard'" class="btn btn-default btn-block" (click)="logout()">{{'logout' | lang}}</a>
+            </div>
+          </li>
+        </ul>
+        <ng-template #noUser><ul class="dropdown-menu">
+          <li class="user-body">
+            <div class="row">
+              <div class="col-xs-3 text-center">
+              </div>
+              <div class="col-xs-6 text-center">
+                <a [routerLink]="'/login'" class="btn btn-default btn-block">{{'login' | lang}}</a>
+              </div>
+              <div class="col-xs-3 text-center">
+              </div>
+            </div>
+          </li>
+        </ul></ng-template>
+      </li>
+    </ul>
+  </div>
+</nav>

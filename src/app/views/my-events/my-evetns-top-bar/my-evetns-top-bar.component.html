@@ -1,0 +1,11 @@
+<div class="row h-row">
+  <div class="col-md-2 col-sm-2 col-xs-2">
+    <a [routerLink]="'/my-events/draft'" [class.active-top-tab]="activeTab===1">{{'MyEventsDraft' | lang}}</a>
+  </div>
+  <div class="col-md-2 col-sm-2 col-xs-2">
+    <a [routerLink]="'/my-events/going'" [class.active-top-tab]="activeTab===2">{{'MyEventsOnGoing' | lang}}</a>
+  </div>
+  <div class="col-md-2 col-sm-2 col-xs-2">
+    <a [routerLink]="'/my-events/past'" [class.active-top-tab]="activeTab===3">{{'MyEventsPast' | lang}}</a>
+  </div>
+</div>

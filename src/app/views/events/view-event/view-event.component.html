@@ -1,0 +1,83 @@
+<div *ngIf="ed">
+  <app-get-ticket-container [ticketPurchase]="ed.TicketPurchase"></app-get-ticket-container>
+
+
+  <div class="event-profile">
+    <div class="event-image-container">
+      <img [style.opacity]="ed.EventTemplate.CoverImageOpacity/10" class="event-image"
+           [src]="ed.EventTemplate?.CoverImage||'../../../../assets/images/cover.jpg' | safeHtml"
+           />
+      <div class="event-title">
+        <a class="event-title-text">
+          <img class="img-circle-logo" [src]="ed.EventTemplate?.Logo | safeHtml"/>
+        </a>
+        <a class="event-title-text">{{ed.EventDetails.EventTitle}}</a>
+        <a class="event-title-text-date">{{ed.EventDate}}</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-10 col-sm-10 col-xs-10 col-md-offset-1">
+        <div class="row">
+          <div class="col-md-8 col-sm-8 col-xs-8">
+            <div class="row">
+              <div class="col-md-10 col-sm-10 col-xs-10 top-offset-10">
+                <div class="row">
+                  <div class="col-md-2 col-sm-2 col-xs-2">
+                    <span class="small-gray">{{'City' | lang}}</span>
+                    <br/>
+                    <span class="title-3">{{ed.EventDetails?.Location?.CityName | lang}}</span>
+                  </div>
+                  <div class="col-md-2 col-sm-2 col-xs-2">
+                    <span class="small-gray">{{'Type' | lang}}</span>
+                    <br/>
+                    <span class="title-3">{{ed.EventDetails?.EventType?.Name | lang}}</span>
+                  </div>
+                  <div class="col-md-2 col-sm-2 col-xs-2">
+                    <span class="small-gray">{{'Category' | lang}}</span>
+                    <br/>
+                    <span class="title-3">{{ed.EventDetails?.Category?.Name | lang}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="row ">
+                <div class="col-md-12 col-sm-12 col-xs-12 top-offset-50">
+                  <div>
+                    <div [innerHTML]="ed.EventDetails?.Description"></div>
+                  </div>
+                  <div>
+                    <div [innerHTML]="ed.EventSettings?.Terms"></div>
+                  </div>
+                  <div>
+                    {{ed.EventSettings?.OrganizerTitle}}
+                    <br>
+                    <div [innerHTML]="ed.EventSettings?.OrganizerDescription"></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-md-2 col-sm-2 col-xs-2">
+          </div>
+          <div class="col-md-2 col-sm-2 col-xs-2">
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <button data-toggle="modal" data-target="#bt"
+                        class="btn btn-default" type="button" data-select2-open="multi-prepend">
+                  {{'GetTickets' | lang}}
+                </button>
+                <p class="title-2 top-offset-10">{{ed.EventDate | lang}}</p>
+                <p class="title-2 top-offset-10">{{ed.EventDetails?.Location?.FullAddress}}</p>
+                <a class="title-2 top-offset-10"
+                   [href]="'https://maps.google.com/maps?q='+ed.EventDetails?.Location?.Latitude+','+ed.EventDetails?.Location?.Longitude+'&hl=es;z=14&amp;output=embed'"
+                   target="_blank">
+                  {{'ViewOnMap' | lang}}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

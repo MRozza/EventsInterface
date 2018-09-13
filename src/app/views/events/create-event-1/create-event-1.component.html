@@ -1,0 +1,87 @@
+<div class="upcoming-container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="form-white">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <span class="page-number">{{'step1' | lang}}</span>
+            <h4>{{'EVENTDETAILS' | lang}}</h4>
+          </div>
+        </div>
+
+        <div class="row margin-top-20">
+          <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+            <label>{{'EventTitle' | lang}}</label>
+            <input type="text" class="form-control" schemaPath=".EventTitle" [(ngModel)]="model.EventTitle">
+          </div>
+        </div>
+
+        <div class="row margin-top-20">
+          <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+            <label>{{'EventCategory' | lang}}</label>
+            <select [compareWith]="compareCategoryFn" schemaPath=".Category" class="form-control" [(ngModel)]="model.Category">
+              <option *ngFor="let cat of CategoryList" [ngValue]="cat">{{cat.Name | lang}}</option>
+            </select>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+            <label>{{'EventType' | lang}}</label>
+            <select [compareWith]="compareCategoryFn" schemaPath=".EventType" class="form-control" [(ngModel)]="model.EventType">
+              <option *ngFor="let ev of EventTypeList" [ngValue]="ev">{{ev.Name | lang}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row margin-top-20">
+          <div class="col-md-3 col-sm-3 col-xs-3 form-group">
+            <label>{{'StartDate' | lang}}</label>
+            <app-pick-date schemaPath=".StartDate" [(ngModel)]="model.StartDate" [options]="dateOption"></app-pick-date>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-3 form-group">
+            <label>{{'StartTime' | lang}}</label>
+            <input type="time" class="form-control" [(ngModel)]="model.StartTime">
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-3 form-group">
+            <label>{{'EndDate' | lang}}</label>
+            <app-pick-date [(ngModel)]="model.EndDate" [options]="dateOption"></app-pick-date>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-3 form-group">
+            <label>{{'EndTime' | lang}}</label>
+            <input type="time" class="form-control" [(ngModel)]="model.EndTime">
+          </div>
+        </div>
+
+        <div class="row margin-top-20">
+          <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="height: 300px">
+            <label>{{'EventDescription' | lang}}</label>
+            <!-- <textarea class="form-control" [ngModel]="model.Description" ></textarea> -->
+            <quill-editor [modules]="defaultModal"
+                          [(ngModel)]="model.Description"></quill-editor>
+          </div>
+        </div>
+
+        <div class="row margin-top-20" style="padding-top: 50px">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <label>{{'EventLocation' | lang}}</label>
+          </div>
+        </div>
+
+        <div class="row ">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div id="mapId">
+              <app-ang-map [address]="model.Location.FullAddress" [latitude]="model.Location.Latitude"
+                           [longitude]="model.Location.Longitude" (onPosChange)="updateData($event)"></app-ang-map>
+            </div>
+          </div>
+        </div>
+
+        <div class="row margin-top-10">
+          <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+            <button type="submit" class="btn btn-default pull-right" (click)="SaveEventStep1()">{{'submit' | lang}}</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

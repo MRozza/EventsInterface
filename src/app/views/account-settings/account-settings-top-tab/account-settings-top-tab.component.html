@@ -1,0 +1,11 @@
+<div class="row h-row">
+  <div class="col-md-2 col-sm-2 col-xs-2">
+    <a [routerLink]="'/account-settings/profile-info'" [class.active-top-tab]="activeTab===1">{{'ProfileInfo' | lang}}</a>
+  </div>
+  <div class="col-md-2 col-sm-2 col-xs-2">
+    <a [routerLink]="'/account-settings/change-password'" [class.active-top-tab]="activeTab===2">{{'ChangePassword' | lang}}</a>
+  </div>
+  <div class="col-md-2 col-sm-2 col-xs-2">
+    <a [routerLink]="'/account-settings/notification'" [class.active-top-tab]="activeTab===3">{{'Notification' | lang}}</a>
+  </div>
+</div>

@@ -1,0 +1,160 @@
+<div class="upcoming-container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="form-white">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <span class="page-number">{{'step3' | lang}}</span>
+            <h4>{{'createTicket' | lang}}</h4>
+          </div>
+        </div>
+        <h4>{{'TicketNum'| lang}}</h4>
+        <div class="row margin-top-20">
+          <div class="col-md-3 col-sm-3 col-xs-3 form-group">
+            <label>{{'ticketName' | lang}}</label>
+            <input type="text" schemaPath=".Name" class="form-control"
+                   [(ngModel)]="ticketCreation.Name">
+
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-3 form-group">
+            <label>{{'quantityAvailable' | lang}}</label>
+            <input type="number" schemaPath=".Quantity" class="form-control"
+                   [(ngModel)]="ticketCreation.Quantity">
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-3 form-group">
+            <label>{{'price' | lang}}</label>
+            <input type="number" schemaPath=".Price" class="form-control"
+                   [(ngModel)]="ticketCreation.Price" [disabled]="ticketCreation.IsFree">
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-3 form-group">
+            <br>
+            <br>
+            <div class="pretty p-icon p-smooth">
+              <input type="checkbox" [checked]="ticketCreation.IsFree" id="isFree" (change)="isFreeChange()">
+              <div class="state p-success">
+                <i class="icon glyphicon glyphicon-ok"></i>
+                <label for="isFree">{{'isFree' | lang}}</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row margin-top-20">
+          <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+            <label>{{'description' | lang}}</label>
+            <textarea class="form-control" [(ngModel)]="ticketCreation.Description"
+                      schemaPath=".Description"></textarea>
+            <!--<quill-editor schemaPath=".Description" [modules]="defaultModal"-->
+            <!--[(ngModel)]="ticketCreation.Description"></quill-editor>-->
+
+            <!--<app-ngx-editor [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="ticketCreation.Description" schemaPath=".Description"></app-ngx-editor>-->
+          </div>
+        </div>
+
+        <div class="row margin-top-20">
+          <div class="col-md-5 col-sm-5 col-xs-5 form-group">
+            <label>{{'minimumByOrder' | lang}}</label>
+            <input schemaPath=".MinimumByOrder" type="number" class="form-control"
+                   [(ngModel)]="ticketCreation.MinimumByOrder"/>
+          </div>
+          <div class="col-md-5 col-sm-5 col-xs-5 form-group">
+            <label>{{'maxByOrder' | lang}}</label>
+            <input schemaPath=".MaxByOrder" type="number" class="form-control"
+                   [(ngModel)]="ticketCreation.MaxByOrder" placeholder="0" [disabled]="unlimited"/>
+          </div>
+          <div class="col-md-2 col-sm-2 col-xs-2 form-group">
+            <br>
+            <br>
+            <div class="pretty p-icon p-smooth">
+              <input type="checkbox" [checked]="unlimited" id="unlimited" (change)="unlimitedChange()">
+              <div class="state p-success">
+                <i class="icon glyphicon glyphicon-ok"></i>
+                <label for="unlimited">{{'unlimited' | lang}}</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row margin-top-20">
+          <div class="col-md-3 col-sm-3 col-xs-3 form-group">
+            <label>{{'availableFromDate' | lang}}</label>
+            <app-pick-date schemaPath=".AvailableFromDate" [(ngModel)]="ticketCreation.AvailableFromDate"
+                           [options]="dateOption1"></app-pick-date>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-3 form-group">
+            <label>{{'availableFromTime' | lang}}</label>
+            <input type="time" class="form-control" [(ngModel)]="ticketCreation.AvailableFromTime">
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-3 form-group">
+            <label>{{'availableToDate' | lang}}</label>
+            <app-pick-date schemaPath=".AvailableToDate" [(ngModel)]="ticketCreation.AvailableToDate"
+                           [options]="dateOption2"></app-pick-date>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-3 form-group">
+            <label>{{'availableToTime' | lang}}</label>
+            <input type="time" class="form-control" [(ngModel)]="ticketCreation.AvailableToTime">
+          </div>
+        </div>
+
+        <div class="row margin-top-20">
+          <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+            <div class="pretty p-icon p-smooth">
+              <input type="checkbox" [checked]="fromToday" id="startDate" (change)="getToday()">
+              <div class="state p-success">
+                <i class="icon glyphicon glyphicon-ok"></i>
+                <label for="startDate">من اليوم</label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+            <div class="pretty p-icon p-smooth">
+              <input type="checkbox" [checked]="toEnd" id="endDate" (change)="getEnd()">
+              <div class="state p-success">
+                <i class="icon glyphicon glyphicon-ok"></i>
+                <label for="endDate">الى تاريخ نهاية الحدث</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Questions-->
+        <div class="row margin-top-20" *ngFor="let question of ticketCreation.Questions; let i = index"
+             [attr.data-index]="i">
+          <div *ngIf="!question?.IsDeleted">
+            <div class="col-md-10 col-sm-10 col-xs-10 form-group">
+              <label>{{'question' | lang}} {{i + 1}}</label>
+              <textarea maxlength="1000" [(ngModel)]="ticketCreation.Questions[i].QuestionText"
+                        class="form-control"></textarea>
+            </div>
+            <div class="col-md-2 col-sm-2 col-xs-2 form-group">
+              <button type="submit" class="btn btn-default pull-right" (click)="removeQuestion(ticketCreation.Questions[i])">{{'addAnotherQuestion' |
+                lang}}
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="row margin-top-20">
+          <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+            <button type="submit" class="btn btn-default pull-right" (click)="addQuestion()">{{'addAnotherQuestion' |
+              lang}}
+            </button>
+          </div>
+        </div>
+        <!--End of Questions-->
+        <div class="row margin-top-10">
+          <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+            <button type="submit" class="btn btn-default pull-right" (click)="submit(false)">{{'submit' | lang}}
+            </button>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+            <button type="submit" class="btn btn-default pull-right" (click)="submit(true)">{{'addAnotherTicket' |
+              lang}}
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+</div>

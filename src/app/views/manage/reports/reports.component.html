@@ -1,0 +1,21 @@
+<app-side-menu-manage-event [isReport]="true" [eventId]="id"></app-side-menu-manage-event>
+
+<div class="management-dialog report-order">
+  <div class="management-dialog-title">{{'Settings' | lang}}
+    <span class="management-dialog-title-arrow"><i class="fas fa-arrow-right"></i></span>
+  </div>
+  <div class="management-form">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <button  class="title-4" (click)="report=2">{{'ticketsSales' | lang}}</button>
+        <button  class="title-5 pointer" (click)="report=1">{{'orders' | lang}}</button>
+        <button class="title-6 pointer" (click)="report=3">{{'احصائيات'}}</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="report-content">
+  <app-step-5 [uId]="id" *ngIf="report===1"></app-step-5>
+  <app-step-6 [uId]="id" *ngIf="report===2"></app-step-6>
+  <app-step-7 [uId]="id" *ngIf="report===3"></app-step-7>
+</div>

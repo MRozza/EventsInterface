@@ -1,0 +1,8 @@
+<div class="row h-row">
+  <div class="col-md-2 col-sm-2 col-xs-2">
+    <a [routerLink]="'/my-tickets/upcoming'" [class.active-top-tab]="activeTab===1">{{'UpcomingTicket' | lang}}</a>
+  </div>
+  <div class="col-md-2 col-sm-2 col-xs-2">
+    <a [routerLink]="'/my-tickets/past'" [class.active-top-tab]="activeTab===2">{{'PastTicket' | lang}}</a>
+  </div>
+</div>

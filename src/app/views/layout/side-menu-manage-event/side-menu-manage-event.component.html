@@ -1,0 +1,39 @@
+<ul class="drawer">
+
+  <li>
+    <a (click)="showEventInfo()">
+      <i class="fas fa-info-circle"></i>
+      <span>{{'Details' | lang}}</span>
+    </a>
+  </li>
+  <li>
+    <a (click)="showDesignManagement()">
+      <i class="fas fa-pencil-alt"></i>
+      <span>{{'Design' | lang}}</span>
+    </a>
+  </li>
+  <li>
+    <a (click)="showEventTickets()">
+      <i class="fas fa-ticket-alt"></i>
+      <span>{{'Tickets' | lang}}</span>
+    </a>
+  </li>
+  <!--<li>-->
+    <!--<a (click)="showEventSponsors()">-->
+      <!--<i class="fas fa-money-bill-alt"></i>-->
+      <!--<span>{{'Sponsers' | lang}}</span>-->
+    <!--</a>-->
+  <!--</li>-->
+  <li>
+    <a (click)="showManagement()">
+      <i class="fas fa-cog"></i>
+      <span class="bold-font">{{'Settings' | lang}}</span>
+    </a>
+  </li>
+  <li>
+    <a [routerLink]="['/manage/reports',eventId]">
+      <i class="fas fa-briefcase"></i>
+      <span class="bold-font">{{'Manage' | lang}}</span>
+    </a>
+  </li>
+</ul>

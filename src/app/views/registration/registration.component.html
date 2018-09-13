@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12 form-group text-center">
+        <h2>{{'registration' | lang}}</h2>
+        <div class="row">
+          <div class="col-md-2 col-md-offset-5">
+            <div class="header-underline"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+        <label>{{'firstName' | lang}}</label>
+        <input schemaPath=".FirstName" type="text" class="form-control"
+               [(ngModel)]="User.FirstName"/>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+        <label>{{'lastName' | lang}}</label>
+        <input schemaPath=".LastName" type="text" class="form-control"
+               [(ngModel)]="User.LastName"/>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+        <label>{{'email' | lang}}</label>
+        <input type="text" class="form-control" schemaPath=".Email" [(ngModel)]="User.Email">
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+        <label>{{'password' | lang}}</label>
+        <input type="password" class="form-control" schemaPath=".Password"
+               [(ngModel)]="User.Password">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+        <label>{{'mobile' | lang}}</label>
+        <input type="text" class="form-control" schemaPath=".Mobile"
+               [(ngModel)]="User.Mobile"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <button type="submit" class="btn btn-default pull-right" (click)="onSubmit()">{{'registration' | lang}}</button>
+      </div>
+    </div>
+  </div>
+</div>

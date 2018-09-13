@@ -1,0 +1,19 @@
+<select class='select-option' required [(ngModel)]='monthSelected'>
+  <option class='option' *ngFor="let value of months; let i='index'" [value]="i+1">{{value}}</option>
+</select>
+<select class='select-option' required [(ngModel)]='yearSelected'>
+  <option class='option' *ngFor="let value of year;" [value]="value">{{value}}</option>
+</select>
+<div>
+  <div style="display: block">
+    <canvas baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"></canvas>
+  </div>
+  <button (click)="getData()">تحديث</button>
+</div>

@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-md-4 col-sm-4 col-xs-4">{{'totalSales' | lang}} {{totalSales}}</div>
+  <div class="col-md-4 col-sm-4 col-xs-4">{{'numberOfAttendees' | lang}} {{totalAttendees}}</div>
+  <div class="col-md-4 col-sm-4 col-xs-4">{{'visits' | lang}} {{totalVisits}}</div>
+
+</div>
+<div style="margin: auto; max-width: 1000px; margin-bottom: 50px;">
+  <data-table id="orders-grid"
+              headerTitle="تقارير البيع"
+              [items]="items"
+              [itemCount]="itemCount"
+              (reload)="reloadItems($event)"
+
+              (rowClick)="rowClick($event)"
+              (rowDoubleClick)="rowDoubleClick($event)"
+              [rowTooltip]="rowTooltip"
+  >
+    <data-table-column
+      [property]="'TicketName'"
+      [header]="'TicketName' | lang"
+      [sortable]="true"
+      [resizable]="true">
+      <ng-template #dataTableCell let-item="item">
+        <span>{{item.name}}</span>
+      </ng-template>
+    </data-table-column>
+    <data-table-column
+      [property]="'Amount'"
+      [header]="'Amount'| lang"
+      [sortable]="true">
+      <ng-template #dataTableCell let-item="item">
+        <span>{{item.amount}}</span>
+      </ng-template>
+    </data-table-column>
+    <data-table-column
+      [property]="'Quantity'"
+      [header]="'Quantity'| lang"
+      [sortable]="true">
+      <ng-template #dataTableCell let-item="item">
+        <span>{{item.quantity}}</span>
+      </ng-template>
+    </data-table-column>
+    <data-table-column
+      [property]="'sold'"
+      [header]="'sold'| lang"
+      [sortable]="true">
+      <ng-template #dataTableCell let-item="item">
+        <span>{{item.quantity - item.available}}</span>
+      </ng-template>
+    </data-table-column>
+  </data-table>
+</div>

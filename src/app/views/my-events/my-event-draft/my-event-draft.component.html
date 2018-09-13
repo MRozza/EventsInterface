@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-2 col-sm-2 col-xs-2 no-padding ">
+  </div>
+  <div class="col-md-10 col-sm-10 col-xs-10 no-padding">
+    <h2 class="setting-tabs-title">{{'MyEvents' | lang}}</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2 col-sm-2 col-xs-2 no-padding ">
+  </div>
+  <div class="col-md-10 col-sm-10 col-xs-10 no-padding">
+    <app-my-evetns-top-bar [activeTab]="1"></app-my-evetns-top-bar>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2 col-sm-2 col-xs-2 no-padding">
+    <app-vertical-tab-settings [activeTab]="2"></app-vertical-tab-settings>
+  </div>
+  <div class="col-md-10 col-sm-10 col-xs-10 no-padding">
+
+    <div class="tabcontent">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12 text-center no-data" *ngIf="data && data.length==0" >{{'noData' | lang}}</div>
+        <div class="col-md-6 col-sm-6 col-xs-6" *ngFor="let item of data;">
+          <div class="ticket-container">
+            <a [routerLink]="'/manage/event/'+item.id"><h4>{{item.title}}</h4></a>
+            <p>{{item.date + ' | ' +item.cityName}}</p>
+            <p>{{'numberOfAttendees' | lang}} : {{item.numberOfAttendees}}</p>
+            <p>{{'totalSales' | lang}} : {{item.sales}}</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
